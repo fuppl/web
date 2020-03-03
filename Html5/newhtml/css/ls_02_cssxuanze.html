@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建css选择器</title>
+    <style type="text/css">
+        /*可以用*调整全文*/
+        /*TODO 类选择器：使用class属性必须有  .  符号*/
+        .class1{
+            font-size: 50px;
+            color: #ff001c;
+        }
+        /*TODO 用id需# ；id通常唯一使用*/
+        #id1{
+            font-size: 50px;
+            color: #00ff15;
+        }
+        /*属性选择器：[属性]*/
+        [href]{
+            font-size: 50px;
+            color: #00ff15;
+        }
+        /*属性选择器也可以单独使用*/
+        [href = "ls_02_cssxuanze.html"]{
+            font-size: 50px;
+            color: #ff00f3;
+        }
+        /*：选择器可以选择动作*/
+        /*hover表示当鼠标经过时的操作*/
+        a:hover{
+            font-size: 80px;
+            color: #3500ff;
+        }
+    </style>
+</head>
+<body>
+
+<!--class是一个全局属性，每个类都有class属性-->
+<a class="class1">lalala</a>
+<!--id 也是全局属性-->
+<a id="id1">lalala</a>
+<a >lalala</a>
+<a href="ls_01_cssprimary.html">lalala</a>
+<a href="ls_02_cssxuanze.html">lalala</a>
+<p>lalala</p>
+<h1>lalala</h1>
+
+
+</body>
+</html>

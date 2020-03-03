@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--todo namespace里填dao位置-->
+<mapper namespace="com.example.dao.RoleDao">
+    <!--    定义User的esultmap-->
+    <resultMap id="RoleMap" type="role">
+<!--        todo 此处rid与24行rid保持一致-->
+        <id property="roleId" column="rid"/>
+        <result property="roleName" column="role_name"/>
+        <result property="roleDesc" column="role_Desc"/>
+        <collection property="users" ofType="user">
+            <id property="id" column="id"/>
+            <result property="username" column="username"/>
+            <result property="sex" column="sex"/>
+            <result property="address" column="address"/>
+
+        </collection>
+    </resultMap>
+
+    <!--    查询所有-->
+    <select id="findALL" resultMap="RoleMap">
+        select u.*,r.id as rid ,r.role_name,r.role_desc from role r left outer join user_role ur on r.id = ur.rid
+        left outer join user u on u.id = ur.uid
+        </select>
+
+</mapper>
+        <!--select u.*,r.id as rid, r.role_name ,r.role_desc, from role left outer join user_role  on r.id = ur.rid
+        left outer join user u on u.id = ur.uid-->

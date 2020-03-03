@@ -1,0 +1,7 @@
+这个项目与day01相同，但通过自己编写框架部分源码深入理解过程
+解析配置文件就和这个工厂的构建者联系起来了，构建者就构造了工厂，工厂就生产了SqlSession
+
+读取配置文件用到了io里的Resources类，读出的流（我们需要的信息），交给了构建者（SqlSessionFactoryBuilder），
+构建者使用工具类（XMLConfigBuilder）构建了一个工厂对象（SqlSessionFactoryImpl）
+工厂对象里的openssion（）给我们提供了一个session方法（SqlSessionImpl）
+session方法里提供了两个方法，构建代理对象和查询所有

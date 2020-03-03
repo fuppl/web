@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    todo 把对象的创建交给spring来管理-->
+<!--    todo spring对bean的管理细节
+            1 创建bean对象的三种方式
+            2 bean对象的作用范围
+            3 bean对象的生命周期
+-->
+<!--    创建bean的三种方式
+        todo 1.使用默认构造函数创建
+            在spring配置文件中使用bean标签，配以id和class属性之后，且没有其他的属性标签时。
+            采用的就是默认方式，此时如果类中没有默认构造函数则类无法创建
+-->
+<!--    <bean id="accountService" class="com.example.service.impl.AccountServiceImpl"/>-->
+<!--    todo 2.使用普通工厂中的方法创建对象（使用某个类中的方法创建对象，并存入spring容器）-->
+<!--    <bean id="InstanceFactory" class="com.example.factory.InstanceFactory"/>-->
+<!--    <bean id="accountService" factory-bean="InstanceFactory" factory-method="getAccountService"/>-->
+<!--    todo 3.使用工厂中的静态方法创造对象（使用某个类中的静态方法创造对象，并存入spring容器）-->
+<!--    <bean id="accountService" class="com.example.factory.StaticFactory" factory-method="getAccountService"/>-->
+
+<!--    todo bean的作用范围调整  bean默认为单例
+        todo bean标签的scope属性：
+            作用：用于指定bean的作用范围
+            取值：常用的就是单例的和多例的
+                singleton:单例的（默认值）
+                prototype:多例的
+                request：作用于web应用的请求范围
+                session：作用于web应用的会话范围
+                global-session：作用于集群环境的会话范围（全局会话范围），当不是集群环境时，它就是session
+
+-->
+<!--    <bean id="accountService" class="com.example.service.impl.AccountServiceImpl" scope="prototype"/>-->
+<!--    bean对象的生命周期
+            单例对象
+                出生：容器创建时
+                活着：只要容器还在，对象就活着
+                死亡：容器消失时
+                总结：单例对象的生命周期与容器相同
+            多例对象
+                出生:当我们使用对象时，spring框架为我们创建
+                活着：对象只要是在使用过程中就一直活着
+                死亡：当对象长时间不用且没有其他对象引用时，有java的垃圾回收器回收
+-->
+<!--    todo 用构造函数注入
+            用标签：constructor-arg
+            位置：bean标签内部
+            标签中的属性:
+                type:用于指定要注入的数据类型，也是构造函数中某个或某些构造函数的类型
+                index：用于指定要注入的数据构造函数中的索引位置，索引从0开始
+                name：用于给构造函数中指定名称赋值（最常用）
+                ————————————以上三个用于指定给构造函数中哪个参数赋值——————————————
+                value：用于提供基本类型和String类型的数据
+                ref：用于指定其他的bean类型数据。它指的就是在spring核心容器中出现过的bean对象
+            优势：
+                在获取bean对象时注入数据是必须操作，否则对象无法创建成功
+            弊端：
+                改变了bean对象的实例化方式，使我们在创建对象时，如果用不到这些数据也必须提供
+-->
+    <bean id="accountService" class="com.example.service.impl.AccountServiceImpl" scope="prototype">
+        <constructor-arg name="name" value="泰斯特"/>
+        <constructor-arg name="age" value="18"/>
+        <constructor-arg name="birthday" ref="now"/>
+    </bean>
+<!--    配置一个日期对象-->
+    <bean name="now" class="java.util.Date"/>
+
+<!--    todo set方法注入（更常用方式）
+         标签：property
+         位置：bean标签内部
+         属性：
+            name：用于指定注入时的set方法名称（最常用）
+            value：用于提供基本类型和String类型的数据
+            ref：用于指定其他的bean类型数据。它指的就是在spring核心容器中出现过的bean对象
+         优势：
+            创建对象时没有明确的限制，直接使用默认构造函数
+         弊端：
+            如果有某个成员必须有值，则获取对象时set方法没有执行
+-->
+    <bean id="accountService2" class="com.example.service.impl.AccountServiceImpl2" scope="prototype">
+        <property name="name" value="test2"/>
+        <property name="age" value="19"/>
+        <property name="birthday" ref="now"/>
+    </bean>
+
+<!--    todo 复杂类型的注入（集合类型的注入）
+            用于给List结构集合注入的标签：
+                list array set
+            用于给Map结构集合注入的标签：
+                set map
+            结构相同，标签可以互换
+-->
+    <bean id="accountService3" class="com.example.service.impl.AccountServiceImpl3">
+        <property name="myStrs">
+            <array>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </array>
+        </property>
+        <property name="myList">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <property name="mySet">
+            <set>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </set>
+        </property>
+        <property name="myMap">
+            <map>
+                <entry key="testA" value="aaa"/>
+                <entry key="testB">
+                    <value>bbb</value>
+                </entry>
+            </map>
+        </property>
+        <property name="myProps">
+            <props>
+                <prop key="testC">ccc</prop>
+                <prop key="testD">ddd</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

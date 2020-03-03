@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2017214203 董天宇</title>
+    <style>
+        .content {
+            position: absolute;
+            width: 36%;
+            margin-top: 30px;
+            top: 0;
+            left: 32%;
+            z-index: 999;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            background-color: white;
+            opacity: 0.99;
+        }
+
+        .content .header, .container {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .content .header p {
+            font-size: 22px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .content .container p {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        .content .footer button {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .content .footer button:hover {
+            background-color: #e4393c;
+        }
+
+        .Mymodal .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #ccc;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+<div class="text">
+    <h2>Homework-05</h2>
+    <h4>模态框</h4>
+    <p>
+        Modal模态框是一种更灵活、更强大的自定义对话框<br>
+        实现效果：当模态框被激活，覆盖在网页内容上，并在弹出的窗口中显式详细互交信息<br>
+        模拟bootstrap的实现：<a href="https://v3.bootcss.com/javascript/#modals">https://v3.bootcss.com/javascript/#modals</a><br>
+        可以通过国内CDN节点引入jquery，<a href="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js">https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js</a><br>
+    </p>
+    <img src="https://github.com/bwhyman/web-course/blob/master/homeworks/homework-05/asserts/screen-01.gif?raw=true"
+         alt="演示">
+</div>
+<div class="Mymodal" style="display: none">
+    <div class="content">
+        <div class="header">
+            <p>题目</p>
+        </div>
+        <div class="container">
+            <p>提交成功</p>
+        </div>
+        <div class="footer">
+            <button class="back">关闭</button>
+        </div>
+    </div>
+    <div class="background"></div>
+</div>
+<button class="btn">点击激活模态框</button>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    //点击半透明蒙版，或点击按钮或者透明地方取消
+    $(function () {
+        $(".btn").click(() => {
+            $(".Mymodal").fadeIn(() => {
+                $(".back,.background").click(() => {
+                    $(".Mymodal").fadeOut();
+                })
+            })
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trim</title>
+</head>
+<body>
+
+<script type="text/javascript">
+//      低版本ie不支持trim去掉空白,需要自己写
+    String.prototype.trim = function(){
+        return this.replace(/^\s+/,'').replace(/\s+$/,'');
+    }
+
+
+    window.onload = function () {
+        document.getElementById('btn').onclick = function () {
+            alert('--->'+document.getElementById('txt').value.trim()+'<---')
+        }
+    }
+</script>
+
+<input type="text" id="txt" placeholder="用户名">
+<input type="button" id="btn" value="获取用户名">
+
+</body>
+</html>

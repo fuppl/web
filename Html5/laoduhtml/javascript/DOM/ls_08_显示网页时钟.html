@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页时钟</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var date = new Date();
+    document.write(date+'<br>');
+    date = date.toLocaleString();
+    document.write(date+'<br>');
+
+    // 当最格式不满意，可以自定义格式
+    var t = new Date();
+    var year = t.getFullYear();
+    var month = t.getMonth();//取值0-11；
+    var dayofweek = t.getDay();//取值0-6
+    var day = t.getDate();
+    document.write(year+'年' + (month+1) + '月' + day + '日' +'<br>');
+    //TODO 从1970年1月1日到当前时间的毫秒数，一般用作时间戳（timestamp）
+    document.write(new Date().getTime());
+
+
+
+    window.onload = function () {
+        var btn = document.getElementById('btn');
+        var div = document.getElementById('div');
+
+        displaytime = function () {
+            var ti = new Date().toLocaleString();
+            div.innerText = ti;
+        };
+        //    每隔一秒调用display函数
+        start = function () {
+            //这个函数有返回值
+            v = window.setInterval('displaytime()',1000);
+        };
+
+        stop = function () {
+        //    可用来停止
+            window.clearInterval(v);
+        };
+    };
+</script>
+<br>
+<input type="button" id="btn" value="显示系统时间" onclick="start()">
+<input type="button" id="btn2" value="时间停止" onclick="stop()">
+
+<div id="div"></div>
+
+</body>
+</html>

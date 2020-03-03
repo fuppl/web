@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册表</title>
+</head>
+<body>
+<!--todo post不会把信息显示在地址栏-->
+<form action="http://localhost:8080/ja" method="post">
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name="usepwd"></td>
+        </tr>
+        <tr>
+            <td>确认密码</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td>
+<!--               TODO 多个radio可以通过name一致实现单选；-->
+<!--                因为传值不会上传‘男’或‘女’，所以必须手动输入value-->
+<!--                checked默认选中-->
+                <input type="radio" name="gender" value="1" checked>男
+                <input type="radio" name="gender" value="0">女
+            </td>
+        </tr>
+        <tr>
+            <td>兴趣爱好</td>
+            <td>
+
+                <input type="checkbox" value="smoking">抽烟
+                <input type="checkbox" value="drinking">喝酒
+                <input type="checkbox" value="tangtou">烫头
+            </td>
+        </tr>
+        <tr>
+            <td>学历</td>
+            <td>
+                <input list="lalal">
+                <datalist id="lalal">
+                <select>
+<!--                    TODO selected默认选中-->
+                    <option value="juniorhigh">高中</option>
+                    <option value="benke" selected>本科</option>
+                    <option value="shuoshi">硕士</option>
+                </select></datalist>
+            </td>
+        </tr>
+        <tr>
+            <td>简介</td>
+            <td>
+                <textarea rows="10" cols="60" name="introduce"></textarea>
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <input type="submit">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset">
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>

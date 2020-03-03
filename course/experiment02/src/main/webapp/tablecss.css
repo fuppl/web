@@ -1,0 +1,43 @@
+span.label {
+    padding: 0 5px 0 5px;
+    color: white;
+    border-radius: 3px;
+}
+span.success{
+    background-color: rgba(23,255,44,0.73);
+}
+span.warning{
+    background-color: yellow;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+table th,td{
+    text-align: center;
+    padding: 10px;
+}
+table thead{
+    background-color: aqua;
+}
+
+tbody tr:nth-child(odd){
+background-color: #d3e4ff;
+}
+tbody tr:nth-child(even){
+    background-color: rgba(220,232,255,0.73);
+}
+tbody tr:hover{
+    background-color: gainsboro;
+}
+a.btn{
+    display: inline-block;
+    background-color: rgba(255,113,119,0.73);
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+}
+a.btn:hover{
+    background-color: red;
+}

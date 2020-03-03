@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style type="text/css">
+        span{
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    
+    window.onload = function () {
+
+        var usrn = document.getElementById('usrn');
+        var pwd = document.getElementById('pwd');
+        var pwd2 = document.getElementById('pwd2');
+        var email = document.getElementById('email');
+        var usrnerror = document.getElementById('usrnerror');
+        var pwderror = document.getElementById('pwderror');
+        var pwd2error = document.getElementById('pwd2error');
+        var emailerror = document.getElementById('emailerror');
+        var suc = document.getElementById('sub');
+        var userfrom = document.getElementById('userform');
+
+        usrn.onblur = function () {
+            username = usrn.value.trim();
+            if(username){
+                regexp = new RegExp('[A-Za-z0-9]{6,14}');
+                if(!regexp.test(username)){
+                    usrnerror.innerText='用户名在6到14位之间，只能是字母或数字';
+                }
+            }else {
+                usrnerror.innerText='用户名不能为空';
+            }
+        };
+        pwd.onblur = function(){
+            password = pwd.value.trim();
+            if(!password){
+                pwderror.innerText = '密码不能为空'
+            }
+        };
+        pwd2.onblur = function () {
+            password = pwd.value.trim();
+            password2 = pwd2.value.trim();
+            if(password !== password2){
+                pwd2error.innerText = '密码不一致';
+            }
+        };
+        email.onblur = function() {
+            var regepx = new RegExp('^\\w+@[a-z0-9]+\\.[a-z]{2,4}$');
+            emaila = email.value.trim();
+            if(!regepx.test(emaila)){
+                emailerror.innerText = '请输入正确的邮箱'
+            }
+        };
+
+        usrn.onfocus = function () {
+            if(usrnerror.innerText !==''){
+                usrn.value = '';
+            }
+            usrnerror.innerText='';
+        };
+        pwd.onfocus = function(){
+            if(pwderror.innerText !==''){
+                pwd.value = '';
+            }
+            pwderror.innerText='';
+        };
+        pwd2.onfocus = function () {
+            if(pwd2error.innerText !==''){
+                pwd2.value = '';
+            }
+            pwd2error.innerText='';
+        };
+        email.onfocus = function () {
+            if(emailerror.innerText !==''){
+                email.value = '';
+            }
+            emailerror.innerText='';
+        };
+
+        sub.onclick = function () {
+            //TODO 使用代码触发事件，不用人工操作，没有on
+            //保证在什么都没有填写的条件下按提交可以报错；
+            usrn.focus();
+            usrn.blur();
+            pwd.focus();
+            pwd.blur();
+            pwd2.focus();
+            pwd2.blur();
+            email.focus();
+            email.blur();
+
+            if(usrnerror.innerText ==='' && pwderror.innerText ===''&&
+                pwd2error.innerText ==='' && emailerror.innerText ===''){
+                userfrom.submit();
+            }else {
+                alert('所有信息均合法方可提交');
+            }
+        }
+    };
+
+</script>
+
+
+<form action="http://localhost:8080" method="get" id="userform">
+<table>
+    <tr>
+        <td>用户名 </td>
+        <td><input type="text" id="usrn" name="username"></td>
+        <td><span id="usrnerror"></span></td>
+    </tr>
+    <tr>
+        <td>密码</td>
+        <td><input type="password" id="pwd" name="password"></td>
+        <td><span id="pwderror"></span></td>
+    </tr>
+    <tr>
+        <td>确认密码</td>
+        <td><input type="password" id="pwd2"></td>
+        <td><span id="pwd2error"></span></td>
+    </tr>
+    <tr>
+        <td>邮箱</td>
+        <td><input type="text" id="email" name="email"></td>
+        <td><span id="emailerror"></span></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="button" value="注册" id="sub">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="reset">
+        </td>
+        <td></td>
+    </tr>
+</table>
+</form>
+
+
+</body>
+</html>

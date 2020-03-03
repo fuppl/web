@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    开启注解扫描-->
+    <context:component-scan base-package="com.example"/>
+
+<!--    配置视图解析器对象：视图解析器帮你跳转到指定页面-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<!--        prefix表示文件所在目录-->
+        <property name="prefix" value="/WEB-INF/pages/"/>
+<!--        suffix 表示文件后缀名-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+<!--    todo 配置自定义类型转换器-->
+    <bean id="conversionServiceFactoryBean" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.example.utils.StringToDateConverter"/>
+            </set>
+        </property>
+    </bean>
+
+<!--    开启SpringMVC框架注解支持 todo 此标签支持生效的类不包括类型转换器，所以需要单独配置-->
+    <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
+
+</beans>

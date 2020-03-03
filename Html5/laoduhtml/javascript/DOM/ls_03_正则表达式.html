@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    
+    window.onload = function () {
+        document.getElementById('btn').onclick = function () {
+            var regepx = new RegExp('^\\w+@[a-z0-9]+\\.[a-z]{2,4}$');
+            if(!(regepx.test(document.getElementById('txt').value))){
+                // alert('请输入正确的邮箱');
+                document.getElementById('emailerror').innerText='邮箱地址不合法'
+            }
+        };
+        document.getElementById('txt').onfocus = function () {
+            document.getElementById('emailerror').innerText=''
+        };
+    }
+    
+</script>
+
+<input type="text" id="txt">
+<input type="button" id="btn" value="验证邮箱">
+<span id="emailerror" style="color: red;font-size: 12px;"></span>
+
+</body>
+</html>

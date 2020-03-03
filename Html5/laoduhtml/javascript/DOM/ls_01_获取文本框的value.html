@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取文本框的value</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById('btn').onclick= function () {
+            alert(document.getElementById('txt').value);
+            // 也可以修改value
+            // document.getElementById('txt').value='zhangsan';
+            document.getElementById('txt2').value = document.getElementById('txt').value;
+        }
+    }
+</script>
+
+<input type="text" id="txt">
+<input type="button" id="btn" value="获取文本框内容">
+<input type="text" id="txt2">
+
+</body>
+</html>

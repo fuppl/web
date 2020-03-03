@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取下拉列表选中项的value</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    window.onload = function () {
+        var sel = document.getElementById('sel');
+        sel.onchange = function () {
+            alert(this.value)
+        }
+    }
+
+
+</script>
+
+<select id="sel">
+    <option value="">---请选择省份---</option>
+    <option value="hlj">黑龙江</option>
+    <option value="jl">吉林</option>
+    <option value="ln">辽宁</option>
+</select>
+
+</body>
+</html>

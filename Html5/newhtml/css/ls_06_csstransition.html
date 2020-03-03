@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建文本过渡</title>
+    <style type="text/css">
+        p{
+            width: 100px;
+            height: 100px;
+            background-color: #3500ff;
+        }
+        p:hover{
+            width: 200px;
+            height: 200px;
+            background-color: #00ff15;
+            /*delay 延迟反应*/
+            transition-delay: 300ms;
+            /*duration 动画过渡时间*/
+            transition-duration: 1s;
+            /*property 里包含的选项平滑过渡，其他瞬间变化；
+            若不写property则默认duration全部平滑过渡*/
+            transition-property: height,width;
+        }
+    </style>
+</head>
+<body>
+
+<p></p>
+
+</body>
+</html>

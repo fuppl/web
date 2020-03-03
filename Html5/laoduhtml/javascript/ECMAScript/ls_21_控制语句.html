@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制语句</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    // 类比java
+    /*
+    * 1.if
+    * 2.switch
+    *
+    * 3.while
+    * 4.do...while
+    * 5.for
+    *
+    * 6.break
+    * 7.continue
+    * */
+    // js独有
+// 8.for，，，in（了解）
+
+// 创建数组
+    var arr = [true,1,3.14,'abc']
+    for(var i = 0; i < arr.length; i++){
+        alert(arr[i])
+    }
+    // i 表示数组的下标
+    for(var i in arr){
+        alert(arr[i])
+    }
+//    此外,forin还可以遍历属性
+    user = function(username,usernumber) {
+        this.username = username;
+        this.usernumber = usernumber;
+    }
+    u = new user('lilaosi',123)
+    for(shuxing in u){
+        alert(u[shuxing])
+    }
+//    9.with
+    with (u) {
+        alert(username);
+        alert(usernumber)
+    }
+</script>
+
+</body>
+</html>

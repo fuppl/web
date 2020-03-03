@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eval 函数</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //TODO eval函数可以将字符串变成js代码并执行
+    //假设以下代码来自一个Java程序
+    var fromjava = '{\'sno\' : \'111\',\'sname\':\'lilaosi\',\'sex\':\'男\'}';
+    //创建json对象
+    window.eval('var jsonData = '+ fromjava);
+    alert(jsonData.sname)
+
+</script>
+
+</body>
+</html>

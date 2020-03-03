@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+
+<form>
+    <table>
+        <tr>
+            <td>用户名</td>
+<!-- TODO           没有name不会提交-->
+<!--            当用户没有填写该项，会向服务器传值为"",不是null-->
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name="userpasswd"></td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <input type="submit">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset">
+
+            </td>
+
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>

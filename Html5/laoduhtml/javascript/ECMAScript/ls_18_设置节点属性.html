@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置节点属性</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    window.onload = function () {
+
+        document.getElementById('btn').onclick = function () {
+            var txt = document.getElementById('mytxt');
+            txt.type = 'checkbox'
+        }
+
+    }
+</script>
+
+<input type="text" id="mytxt">
+<input type="button" value="将文本框变成复选框" id="btn">
+
+
+
+</body>
+</html>

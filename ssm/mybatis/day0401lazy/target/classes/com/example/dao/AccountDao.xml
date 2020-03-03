@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--todo namespace里填dao位置-->
+<mapper namespace="com.example.dao.AccountDao">
+<!--    定义和封装account 和 user的resultMap-->
+    <resultMap id="accountUserMap" type="account">
+        <id column="id" property="id"/>
+        <result property="uid" column="uid"/>
+        <result property="money" column="money"/>
+<!--        todo 一对一的关系映射，配置封装user内容-->
+<!--        todo select属性指定的内容：查询用户的唯一标志
+            todo column属性指定的值：用户查询id时所需要的参数的值-->
+        <association property="user" column="uid" javaType="user" select="com.example.dao.UserDao.findById">
+
+        </association>
+    </resultMap>
+    <!--    查询所有账户-->
+    <select id="findAll" resultMap="accountUserMap">
+        select * from account
+    </select>
+<!--    根据用户id查询所有账户-->
+    <select id="findAccountByUid" resultType="user" parameterType="int">
+        select * from account where uid = #{uid}
+    </select>
+</mapper>

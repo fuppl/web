@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建表单</title>
+</head>
+<body>
+
+<input type="button" value="按钮">
+<!--button与js 合作并且作为绑定事件的-->
+<button>按钮2</button>
+<!--submit只能提交表单-->
+<input type="submit" value="提交">
+
+
+<!--range数字滑块；step调整操作步长；value调整初始值，不设则默认中间-->
+<input type="range" min="-100"max="100" step="100" value="100">
+<!--number手动输入数字-->
+<input type="number" min="0" max="5" value="3">
+
+<!--checkbox可选项-->
+<input type="checkbox"> 自动登录
+<!--radio类似checkbox但是一旦选中不可退选-->
+<input type="radio"> 选项2
+<br>
+
+<!--radio主要作用是多选，保持name一致即可,checked 勾选，可以保证至少有一个-->
+李老四帅不帅
+<input type="radio" name="a" checked> 帅
+<input type="radio" name="a"> 帅
+<input type="radio" name="a"> 帅
+
+<!--select提供下拉菜单，但不可自己输入-->
+你最喜欢的水果是
+<select>
+    <option>苹果</option>
+    <option>香蕉</option>
+    <option>西瓜</option>
+</select><br>
+<!--datelist提供自己输入选项，需要通过input引导，其中datelist中ID与input中list项一致即可-->
+<input list="lalal">
+<datalist id="lalal">
+    <option>苹果</option>
+    <option>香蕉</option>
+    <option>西瓜</option>
+</datalist>
+
+</body>
+</html>

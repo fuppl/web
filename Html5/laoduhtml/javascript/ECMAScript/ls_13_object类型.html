@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>object</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    function user(a, b, c) {
+        this.age = a;
+        this.name = b;
+        this.sno = c;
+
+        this.getAge = function () {
+            // 注意this
+            return this.age
+        }
+    }
+
+
+    //TODO 可以通过prototype属性动态添加方法
+    user.prototype.geName = function () {
+        return this.name;
+    };
+
+    var user1;
+    user1 = new user(15, 'lilaosi', 123);
+    alert(user1.age);
+    // 访问属性也可以使用以下语法
+    alert(user1["name"]);
+    alert(user1.getAge());
+    alert(user1.geName());
+</script>
+
+</body>
+</html>

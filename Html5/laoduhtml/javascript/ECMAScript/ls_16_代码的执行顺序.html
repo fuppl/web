@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代码的执行顺序</title>
+</head>
+<!--TODO 在页面加载完毕后可以避免因代码前后位置的问题引发的id无法加载等状况-->
+<body onload='ready()'>
+
+<script type="text/javascript">
+
+    ready = function () {
+        document.getElementById('btn').onclick = function () {
+            alert('hello..');
+        }
+    }
+
+</script>
+
+<input type="button" value="hello" id = 'btn'>
+
+
+</body>
+</html>

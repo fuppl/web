@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用事件</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // blur失去焦点
+    // focus获得焦点
+
+//    click鼠标单击
+//    dolclick鼠标双击
+
+    // keydown键盘按下
+//    keyup键盘弹起
+
+//    mousedown鼠标按下
+//    mouseover鼠标经过
+//    mousemove鼠标移动
+//    mouseout鼠标离开
+//    mouseup鼠标弹起
+
+    // reset表单重置
+//    submit表单提交
+
+//    change下拉列表选中项改变,或文本框内容改变
+//TODO    load页面加载完比(全部元素加载完后才会显示)
+//    select文本被选定
+
+    // sayhello被称为回调函数
+sayhello = function () {
+    alert("hello")
+}
+
+
+</script>
+<!--使用事件的方式-->
+<!--第一种，直接在属性中添加-->
+<input type="button" value="hello" onclick=sayhello()>
+<input type="button" value="hello2" id="mybt">
+<input type="button" value="hello3" id="mybt2">
+
+<script type="text/javascript">
+    dosome = function () {
+        alert('dosome');
+    }
+    // 第二种方式,使用纯js代码
+    var butn = document.getElementById('mybt');
+    //TODO 千万别加括号，否则出错
+    // 这行代码的含义：将回调函数dosome注册到click事件上
+    butn.onclick=dosome;
+    var butn2 = document.getElementById('mybt2');
+    // 这个函数没有名字，叫做匿名函数，也是回调函数
+    butn2.onclick = function () {
+        alert('test...');
+    }
+</script>
+
+</body>
+</html>

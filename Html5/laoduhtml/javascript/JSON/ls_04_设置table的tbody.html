@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置table的tbody</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //假设以下数据来自Java程序
+    var data = {
+        'total' : 4,
+        'emps' : [
+            {'epno' : 111,'epnm':'lialosi','sly' :8000.0},
+            {'epno' : 112,'epnm':'wangwu','sly' :8000.0},
+            {'epno' : 113,'epnm':'zhagnsan','sly' :8000.0},
+            {'epno' : 114,'epnm':'yagnliu','sly' :8000.0}
+        ]
+    };
+    //现在想将这些数据展示到表格里
+
+    window.onload = function () {
+
+        var display = document.getElementById("display");
+        var count = document.getElementById("count");
+        var emptbody = document.getElementById('emptbody');
+        var emps = data.emps;
+        // alert(data.emps[0].epnm);
+        display.onclick = function () {
+            var html = '';
+            for(var i = 0; i < emps.length; i ++){
+                html+='<tr>';
+                html+='<td>'+emps[i].epno+'</td>';
+                html+='<td>'+emps[i].epnm+'</td>';
+                html+='<td>'+emps[i].sly+'</td>';
+                html+='</tr>';
+            }
+            emptbody.innerHTML = html;
+            count.innerText = data.total;
+        }
+    }
+    
+</script>
+
+<input type="button" value="显示员工信息列表" id="display">
+
+<h2>员工列表</h2>
+<hr>
+<table border="1px" width="50%">
+
+    <tr>
+        <th>员工编号</th>
+        <th>员工姓名</th>
+        <th>员工薪资</th>
+    </tr>
+    <tbody id="emptbody">
+
+    </tbody>
+</table>
+总共<span id="count">0</span>人
+
+
+</body>
+</html>

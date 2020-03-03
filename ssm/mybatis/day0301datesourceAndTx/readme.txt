@@ -1,0 +1,2 @@
+此项目讨论数据源与事务控制
+数据源讨论关键再SqlMapConfig.xml中datasource部分

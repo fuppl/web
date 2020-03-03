@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建图片</title>
+</head>
+<body>
+
+<!--&lt;!&ndash;点击图片访问超链接&ndash;&gt;-->
+<!--<a href="https://www.baidu.com/" target="_blank">-->
+<!--&lt;!&ndash;alt是替代，当图片消失可以显示，否则不显示&ndash;&gt;-->
+<!--<img src="328795-13100PT92237.jpg" alt="图片">-->
+<!--</a>-->
+
+<!--#必加，否则报错-->
+<img src="timg.jpg" usemap="#123" width="421">
+<form>
+    <input type="image" src="timg.jpg" width="421">
+</form>
+<map name="123">
+    <area href="http://www.sougou.com/" shape="rect" coords="25,20,99,96" target="_blank">
+    <area href="http://www.360.com/" shape="rect" coords="155,26,234,97" target="_blank">
+    <area href="https://www.google.com/" shape="rect" coords="291,22,367,97" target="_blank">
+    <area href="https://www.baidu.com/" shape="circle" coords="54,178,35">
+</map>
+
+
+</body>
+</html>

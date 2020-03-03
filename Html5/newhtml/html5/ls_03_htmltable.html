@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建表格</title>
+</head>
+<body>
+<!-- 1px表示边界1像素,aligen = center 表示居中 -->
+<table border="1px" align="center">
+<!--    thread表头-->
+    <thead>
+    <tr>
+<!--        th会把字居中加粗，可用作表的第一行-->
+        <th>字母</th>
+        <th>字母</th>
+        <th>字母</th>
+        <th>字母</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+    </tr>
+    <tr>
+        <td>d</td>
+        <td>e</td>
+        <td>f</td>
+
+    </tr>
+</table>
+
+<table border="1px" align="center">
+    <!--    thread表头-->
+    <thead>
+    <tr>
+        <!--        th会把字居中加粗，可用作表的第一行-->
+        <th>字母</th>
+        <th>字母</th>
+        <th>字母</th>
+        <th>字母</th>
+    </tr>
+    </thead>
+    <tr>
+<!--        colspan合并行单元格-->
+        <td colspan="3">a</td>
+
+    </tr>
+    <tr>
+<!--        rowspan 合并列单元格-->
+        <td rowspan="2">d</td>
+        <td>e</td>
+        <td>f</td>
+        <td>g</td>
+    </tr>
+    <tr>
+
+        <td>e</td>
+        <td>f</td>
+        <td>g</td>
+    </tr>
+</table>
+
+</body>
+</html>

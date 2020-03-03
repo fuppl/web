@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inner</title>
+    <style type="text/css">
+        #div5{
+            background-color: aqua;
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('btn').onclick = function () {
+                // innerhtml 和 innertext是属性，前者将内容以html代码方式执行，后者以text文本方式执行
+                document.getElementById('div5').innerHTML = '<span style="color: red; ">用户名不能为空</span>';
+                document.getElementById('div5').innerText = '<span style="color: red; ">用户名不能为空</span>';
+            }
+        }
+    </script>
+</head>
+<body>
+
+<input type="button" value="设置div中的内容" id="btn">
+
+<div id="div5"></div>
+
+</body>
+</html>

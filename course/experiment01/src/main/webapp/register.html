@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+
+<form method="post">
+    <div>
+        <p>个人信息</p>
+
+        <table>
+            <tr>
+                <td></td>
+                <td>
+                    <label>
+                        <input type="text" placeholder="用户名（最长八位）" maxlength="8"  required name="usrn">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label>
+                        <input type="password" placeholder="密码（最长八位）" maxlength="8" required name="usrpwd">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td>
+                    <label>
+                        <input type="radio" name="gender" checked value="1">男
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender" value="0">女
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>生日</td>
+                <td>
+                    <label>
+                        <input type="date" name="birth">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>籍贯</td>
+                <td>
+                    <label>
+                        <input list="province" name="province">
+                            <datalist id="province">
+                                <option>哈尔滨</option>
+                                <option>大庆</option>
+                            </datalist>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>学历</td>
+                <td>
+                    <label>
+                        <select name="education">
+                            <option selected>学士</option>
+                            <option>硕士</option>
+                            <option>博士</option>
+                        </select>
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div>
+        <p>其他信息</p>
+        喜欢的课程<br>
+        <label>
+            <ul>
+                <li><label><input type="checkbox" checked >web开发技术</label></li>
+                <li><label><input type="checkbox" >Java语言程序设计</label></li>
+                <li><label><input type="checkbox" >数据库原理</label></li>
+                <li><label><input type="checkbox" >系统分析与设计</label></li>
+            </ul>
+        </label>
+        照片 <input type="file" name="photo" accept=".jpeg, .png">
+    </div>
+
+    <input type="submit">
+    <input type="reset">
+</form>
+
+
+</body>
+</html>

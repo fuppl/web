@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!--    配置spring ioc 把service对象配置进来-->
+    <bean id="accountService" class="com.example.service.impl.AccountServiceImpl"/>
+
+
+<!--    1 配置Logger类-->
+    <bean id="logger" class="com.example.utils.Logger"/>
+<!--    2 配置aop-->
+    <aop:config>
+        <!--            todo 配置切入点表达式
+                            此标签写在aop:aspect 内部，只能当前切面使用
+                            也可写在aop:aspect 外部，则为所有切面使用
+                            若写在外部，必须写在aspect标签之前，否则报错
+        -->
+        <aop:pointcut id="pt1" expression="execution(* com.example.service.impl.*.*(..))"/>
+<!--        配置切面-->
+        <aop:aspect id="logAdvice" ref="logger">
+<!--&lt;!&ndash;            配置前置通知&ndash;&gt;-->
+<!--            <aop:before method="beforePrintLog" pointcut-ref="pt1"/>-->
+<!--&lt;!&ndash;            配置后置通知&ndash;&gt;-->
+<!--            <aop:after-returning method="afterReturningPrintLog" pointcut-ref="pt1"/>-->
+<!--&lt;!&ndash;            配置异常通知&ndash;&gt;-->
+<!--            <aop:after-throwing method="afterThrowingPrintLog" pointcut-ref="pt1"/>-->
+<!--&lt;!&ndash;            配置最终通知&ndash;&gt;-->
+<!--            <aop:after method="afterPrintLog" pointcut-ref="pt1"/>-->
+<!--    配置环绕通知，详细注释请看Logger类中-->
+        <aop:around method="aroundPrintLog" pointcut-ref="pt1"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

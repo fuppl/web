@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框的全选和取消全选</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    window.onload = function () {
+        var fc = document.getElementById('fc');
+        var aihaos = document.getElementsByName('aihao');
+
+        fc.onclick = function () {
+            for(var i = 0; i < aihaos.length; i ++){
+                aihaos[i].checked = fc.checked;
+            }
+        }
+
+        for(var i=0; i < aihaos.length; i ++){
+            aihaos[i].onclick = function () {
+                if(fc.checked && !this.checked){
+                    fc.checked = false;
+                }
+            }
+        }
+
+    }
+</script>
+
+
+<input type="checkbox" id="fc">全选 <br>
+<input type="checkbox" name="aihao" value="smoke">抽烟<br>
+<input type="checkbox" name="aihao" value="drink">喝酒<br>
+<input type="checkbox" name="aihao" value="tt">烫头<br>
+
+
+</body>
+</html>

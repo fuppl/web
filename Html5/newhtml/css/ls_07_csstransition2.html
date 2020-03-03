@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建文本过渡</title>
+    <style type="text/css">
+        p{
+            width: 100px;
+            height: 100px;
+            background-color: #3500ff;
+        }
+        p:hover{
+            width: 200px;
+            height: 200px;
+            background-color: #00ff15;
+            /*delay 延迟反应*/
+            transition-delay: 300ms;
+            /*duration 动画过渡时间*/
+            transition-duration: 10s;
+            /*TODO transition-timing-function表示动画播放速度，
+            liner表示线性，即匀速
+            ease表示先慢再快最后慢
+            ease-in先慢后快
+            ease-out先快后慢
+            ease-in-out先慢再快最后慢，先慢比ease还慢*/
+            transition-timing-function: ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<p></p>
+
+</body>
+</html>

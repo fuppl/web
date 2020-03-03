@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+
+<form method="post">
+    <div>
+        <p>个人信息</p>
+        <label>
+            <input type="text" placeholder="用户名（最长八位）" maxlength="8" required name="usrn">
+        </label><br>
+        <label>
+            <input type="password" placeholder="密码（最长八位）" maxlength="8" required name="usrpwd">
+        </label><br>
+        性别
+        <label>
+            <input type="radio" name="gender" checked>男
+        </label>
+
+        <label>
+            <input type="radio" name="gender">女
+        </label><br>
+
+        <label>
+            生日<input type="date" name="birth">
+        </label><br>
+
+        <label>
+            籍贯<input list="province" name="province">
+            <datalist id="province">
+                <option>哈尔滨</option>
+                <option>大庆</option>
+            </datalist>
+        </label><br>
+
+        <label>学历
+            <select name="education">
+                <option selected>学士</option>
+                <option>硕士</option>
+                <option>博士</option>
+            </select>
+        </label>
+    </div>
+
+
+    <div>
+        <p>其他信息</p>
+        喜欢的课程<br>
+        <label>
+            <ul >
+                <li><label><input type="checkbox" checked name="web">web开发技术</label></li>
+                <li><label><input type="checkbox" name="java"></label>Java语言程序设计</li>
+                <li><label><input type="checkbox" name="database"></label>数据库原理</li>
+                <li><label><input type="checkbox" name="design"></label>系统分析与设计</li>
+            </ul>
+        </label>
+        照片 <input type="file" name="photo" accept=".jpeg, .png">
+
+    </div>
+
+    <input type="submit">
+    <input type="reset">
+</form>
+
+
+</body>
+</html>

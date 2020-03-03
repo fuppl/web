@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>捕捉回车键</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    window.onload = function () {
+        // 回车键键值13，ESC键值27
+        document.getElementById('btn').onkeydown = function (ev) {
+            // keycode属性可以判断键值
+            if(ev.keyCode === 13){
+                alert('正在登录')
+            }
+        }
+    }
+
+</script>
+
+<input type="password" placeholder="密码" id="btn">
+
+</body>
+</html>

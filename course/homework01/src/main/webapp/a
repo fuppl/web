@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* 容器 */
+.main {
+    border: 1px solid red;
+    width: 800px;
+    padding: 15px;
+}
+/*声明form-group类，放置说明与输入域的行容器，横向弹性布局，元素居中对齐*/
+.form-group {
+    display: flex;
+    margin: 15px 15px;
+}
+/*声明form-label类，放置说明，文本右对齐，占20%，注意弹性百分比的占用属性*/
+.form-label {
+    width: 20%;
+    margin: auto 15px;
+    text-align: right;
+}
+/*声明form-input类，放置输入域，互交的输入域可能是多个，因此是容器，占80%*/
+.form-input {
+    width: 80%;
+}
+/*所有文本，密码的input元素，全局横向占用最大，圆角，内边距*/
+input:not([name=sex]) {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+}
